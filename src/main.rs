@@ -1,21 +1,32 @@
-use std::thread::sleep_ms;
-
 use anyhow::{Context, Result};
-use clap::{Parser, Subcommand};
+use clap::Parser;
 use dialoguer::{Input, Select};
-use weather::configuration::{open_or_default, AvailableProviders, Configuration};
+use weather::configuration::{open_or_default, Configuration};
+use weather::types::AvailableProviders;
 
-#[derive(Parser, Debug)]
-#[command(author, version, about, long_about = None)]
-struct Args {
-    #[command(subcommand)]
-    action: Action,
-}
+mod args {
 
-#[derive(Subcommand, Debug)]
-enum Action {
-    Get { location: String },
-    Configure { provider: AvailableProviders },
+    use clap::{FromArgMatches, Parser, Subcommand};
+    use weather::{command::DateRepresentation, types::AvailableProviders};
+    #[derive(Parser, Debug)]
+    pub struct GetAction {
+        location: String,
+        #[clap()]
+        date: DateRepresentation,
+    }
+
+    #[derive(Subcommand, Debug)]
+    pub enum Action {
+        Get(GetAction),
+        Configure { provider: AvailableProviders },
+    }
+
+    #[derive(Parser, Debug)]
+    #[command(author, version, about, long_about = None)]
+    pub struct Args {
+        #[command(subcommand)]
+        pub action: Action,
+    }
 }
 
 fn select_provider(forced: bool) -> Result<AvailableProviders> {
@@ -33,9 +44,11 @@ fn select_provider(forced: bool) -> Result<AvailableProviders> {
         .get(selection)
         .expect("How did you manage to select outside of the list?")
         .clone();
-    Ok(AvailableProviders::from(selected_provider))
+    let provider_opt = AvailableProviders::from_string(selected_provider);
+    Ok(provider_opt.context("Provider has not been selected")?)
 }
 
+/// synchronous API key prompt
 fn get_api_key() -> Result<String> {
     let api_key = Input::new()
         .with_prompt("Please enter your API key")
@@ -46,7 +59,7 @@ fn get_api_key() -> Result<String> {
 
 #[async_std::main]
 async fn main() -> Result<()> {
-    let args = Args::parse();
+    let args = args::Args::parse();
     let mut configuration = match open_or_default() {
         Ok(c) => c,
         Err(e) => {
@@ -55,18 +68,18 @@ async fn main() -> Result<()> {
         }
     };
     match args.action {
-        Action::Configure { provider } => {
+        args::Action::Configure { provider } => {
             let api_key = get_api_key()?;
             match provider {
                 AvailableProviders::AccuWeather => {
-                    configuration.accuweather_api_key = Some(api_key)
+                    configuration.set_accuweather_api_key(Some(api_key))
                 }
-                _ => (),
             }
         }
-        Action::Get { location } => {
-            if let AvailableProviders::Nothing = configuration.default_provider {
-                configuration.default_provider = select_provider(true)?;
+        args::Action::Get(_get_action) => {
+            if let None = configuration.default_provider {
+                let provider = select_provider(true)?;
+                configuration.default_provider = Some(provider);
             } else {
             }
         }
