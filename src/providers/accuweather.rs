@@ -1,8 +1,7 @@
 use reqwest::Response;
 use serde::Deserialize;
 
-use super::Provider;
-use crate::command::WeatherCommand;
+use crate::{command::WeatherCommand, report::Report, types::Provider};
 use anyhow::{Context, Result};
 
 /// AccuWeather REST API adapter
@@ -66,7 +65,7 @@ impl AccuWeatherProvider {
 }
 
 impl Provider for AccuWeatherProvider {
-    fn run(&self, command: WeatherCommand) -> Result<()> {
+    fn run(&self, command: WeatherCommand) -> Result<Report> {
         unimplemented!("Accuweather control flow not added yet");
     }
 }
