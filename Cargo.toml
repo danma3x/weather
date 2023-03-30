@@ -20,6 +20,7 @@ dialoguer = { version = "0.10.3", features = [
     "tempfile",
     "zeroize",
 ], default-features = false }
+chrono = "0.4.24"
 
 [dev-dependencies]
 wiremock = { version = "0.5.17" }

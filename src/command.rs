@@ -1,27 +1,30 @@
+/// A simple abstraction for types of dates a user might want to enter
+#[derive(Debug, Clone)]
 #[allow(dead_code)]
-pub enum TimeOffset {
+pub enum DateRepresentation {
     Now,
     HourOffset(isize),
-    DayOffset(isize),
+    Date(chrono::NaiveDate),
 }
 
-impl Default for TimeOffset {
+impl Default for DateRepresentation {
     fn default() -> Self {
         Self::Now
     }
 }
 
+/// Bundle of data that is to be used
 #[allow(dead_code)]
 pub struct WeatherCommand {
     location: String,
-    time_offset: TimeOffset,
+    time_offset: DateRepresentation,
 }
 
 impl WeatherCommand {
     pub fn new<S: Into<String>>(location: S) -> Self {
         Self {
             location: location.into(),
-            time_offset: TimeOffset::default(),
+            time_offset: DateRepresentation::default(),
         }
     }
 }
