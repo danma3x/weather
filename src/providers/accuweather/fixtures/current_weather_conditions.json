@@ -1,0 +1,17 @@
+[
+  {
+    "LocalObservationDateTime": "2023-03-31T18:03:00+03:00",
+    "EpochTime": 1680274980,
+    "WeatherText": "Sunny",
+    "WeatherIcon": 1,
+    "HasPrecipitation": false,
+    "PrecipitationType": null,
+    "IsDayTime": true,
+    "Temperature": {
+      "Metric": { "Value": 6.8, "Unit": "C", "UnitType": 17 },
+      "Imperial": { "Value": 44.0, "Unit": "F", "UnitType": 18 }
+    },
+    "MobileLink": "http://www.accuweather.com/en/ua/zaporizhzhia/326514/current-weather/326514?lang=en-us",
+    "Link": "http://www.accuweather.com/en/ua/zaporizhzhia/326514/current-weather/326514?lang=en-us"
+  }
+]

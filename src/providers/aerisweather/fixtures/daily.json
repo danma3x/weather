@@ -1,0 +1,361 @@
+{
+  "success": true,
+  "error": null,
+  "response": [
+    {
+      "loc": {
+        "lat": 47.85167,
+        "long": 35.11714
+      },
+      "place": {
+        "name": "zaporizhzhya",
+        "state": "zp",
+        "country": "ua"
+      },
+      "periods": [
+        {
+          "timestamp": 1680210000,
+          "dateTimeISO": "2023-03-31T00:00:00+03:00",
+          "range": {
+            "maxTimestamp": 1680292800,
+            "maxDateTimeISO": "2023-03-31T23:00:00+03:00",
+            "minTimestamp": 1680210000,
+            "minDateTimeISO": "2023-03-31T00:00:00+03:00",
+            "count": 24
+          },
+          "temp": {
+            "maxC": 10.86,
+            "minC": -0.23,
+            "avgC": 5.85,
+            "maxF": 51.55,
+            "minF": 31.59,
+            "avgF": 42.53,
+            "maxTimestamp": 1680271200,
+            "maxDateTimeISO": "2023-03-31T17:00:00+03:00",
+            "minTimestamp": 1680231600,
+            "minDateTimeISO": "2023-03-31T06:00:00+03:00"
+          },
+          "feelslike": {
+            "maxC": 10.86,
+            "minC": -3.3,
+            "avgC": 3.81,
+            "maxF": 51.55,
+            "minF": 26.07,
+            "avgF": 38.86,
+            "maxTimestamp": 1680271200,
+            "maxDateTimeISO": "2023-03-31T17:00:00+03:00",
+            "minTimestamp": 1680231600,
+            "minDateTimeISO": "2023-03-31T06:00:00+03:00"
+          },
+          "dewpoint": {
+            "maxC": 0.41,
+            "minC": -6.05,
+            "avgC": -3.34,
+            "maxF": 32.74,
+            "minF": 21.11,
+            "avgF": 25.99,
+            "maxTimestamp": 1680278400,
+            "maxDateTimeISO": "2023-03-31T19:00:00+03:00",
+            "minTimestamp": 1680246000,
+            "minDateTimeISO": "2023-03-31T10:00:00+03:00"
+          },
+          "humidity": {
+            "max": 74.14,
+            "min": 33.58,
+            "avg": 53.25,
+            "maxTimestamp": 1680231600,
+            "maxDateTimeISO": "2023-03-31T06:00:00+03:00",
+            "minTimestamp": 1680253200,
+            "minDateTimeISO": "2023-03-31T12:00:00+03:00"
+          },
+          "windSpeed": {
+            "maxKTS": 13,
+            "minKTS": 8,
+            "avgKTS": 11.13,
+            "maxKPH": 24.08,
+            "minKPH": 14.82,
+            "avgKPH": 20.6,
+            "maxMPH": 14.96,
+            "minMPH": 9.21,
+            "avgMPH": 12.8,
+            "maxTimestamp": 1680271200,
+            "maxDateTimeISO": "2023-03-31T17:00:00+03:00",
+            "minTimestamp": 1680235200,
+            "minDateTimeISO": "2023-03-31T07:00:00+03:00",
+            "maxDirDEG": 223,
+            "maxDir": "SW",
+            "minDirDEG": 279,
+            "minDir": "W"
+          },
+          "windGust": {
+            "maxKTS": 23,
+            "minKTS": 13,
+            "avgKTS": 17.04,
+            "maxKPH": 42.6,
+            "minKPH": 24.08,
+            "avgKPH": 31.56,
+            "maxMPH": 26.47,
+            "minMPH": 14.96,
+            "avgMPH": 19.61,
+            "maxTimestamp": 1680210000,
+            "maxDateTimeISO": "2023-03-31T00:00:00+03:00",
+            "minTimestamp": 1680249600,
+            "minDateTimeISO": "2023-03-31T11:00:00+03:00"
+          },
+          "precip": {
+            "maxMM": 0,
+            "minMM": 0,
+            "avgMM": 0,
+            "totalMM": 0,
+            "maxIN": 0,
+            "minIN": 0,
+            "avgIN": 0,
+            "totalIN": 0,
+            "maxTimestamp": 1680210000,
+            "maxDateTimeISO": "2023-03-31T00:00:00+03:00",
+            "minTimestamp": 1680210000,
+            "minDateTimeISO": "2023-03-31T00:00:00+03:00"
+          },
+          "snow": {
+            "maxCM": 0,
+            "minCM": 0,
+            "avgCM": 0,
+            "totalCM": 0,
+            "maxIN": 0,
+            "minIN": 0,
+            "avgIN": 0,
+            "totalIN": 0,
+            "maxTimestamp": 1680210000,
+            "maxDateTimeISO": "2023-03-31T00:00:00+03:00",
+            "minTimestamp": 1680210000,
+            "minDateTimeISO": "2023-03-31T00:00:00+03:00"
+          },
+          "pressure": {
+            "maxMB": 1013,
+            "minMB": 1010,
+            "avgMB": 1011.8,
+            "maxIN": 29.91,
+            "minIN": 29.83,
+            "avgIN": 29.88,
+            "maxTimestamp": 1680210000,
+            "maxDateTimeISO": "2023-03-31T00:00:00+03:00",
+            "minTimestamp": 1680271200,
+            "minDateTimeISO": "2023-03-31T17:00:00+03:00"
+          },
+          "visibility": {
+            "maxKM": 16,
+            "minKM": 16,
+            "avgKM": 16,
+            "maxMI": 9.942,
+            "minMI": 9.942,
+            "avgMI": 9.942,
+            "maxTimestamp": 1680210000,
+            "maxDateTimeISO": "2023-03-31T00:00:00+03:00",
+            "minTimestamp": 1680210000,
+            "minDateTimeISO": "2023-03-31T00:00:00+03:00"
+          },
+          "sky": {
+            "max": 100,
+            "min": 0,
+            "avg": 43.25,
+            "maxTimestamp": 1680256800,
+            "maxDateTimeISO": "2023-03-31T13:00:00+03:00",
+            "minTimestamp": 1680220800,
+            "minDateTimeISO": "2023-03-31T03:00:00+03:00",
+            "coded": [
+              {
+                "code": "FW",
+                "timestamp": 1680210000,
+                "dateTimeISO": "2023-03-31T00:00:00+03:00"
+              },
+              {
+                "code": "CL",
+                "timestamp": 1680213600,
+                "dateTimeISO": "2023-03-31T01:00:00+03:00"
+              },
+              {
+                "code": "BK",
+                "timestamp": 1680253200,
+                "dateTimeISO": "2023-03-31T12:00:00+03:00"
+              },
+              {
+                "code": "OV",
+                "timestamp": 1680256800,
+                "dateTimeISO": "2023-03-31T13:00:00+03:00"
+              },
+              {
+                "code": "BK",
+                "timestamp": 1680264000,
+                "dateTimeISO": "2023-03-31T15:00:00+03:00"
+              },
+              {
+                "code": "SC",
+                "timestamp": 1680274800,
+                "dateTimeISO": "2023-03-31T18:00:00+03:00"
+              },
+              {
+                "code": "OV",
+                "timestamp": 1680282000,
+                "dateTimeISO": "2023-03-31T20:00:00+03:00"
+              },
+              {
+                "code": "BK",
+                "timestamp": 1680285600,
+                "dateTimeISO": "2023-03-31T21:00:00+03:00"
+              },
+              {
+                "code": "SC",
+                "timestamp": 1680289200,
+                "dateTimeISO": "2023-03-31T22:00:00+03:00"
+              },
+              {
+                "code": "BK",
+                "timestamp": 1680292800,
+                "dateTimeISO": "2023-03-31T23:00:00+03:00"
+              }
+            ]
+          },
+          "weather": {
+            "phrase": "Partly Cloudy",
+            "primary": "Partly Cloudy",
+            "primaryCoded": "::SC",
+            "icon": "pcloudy.png",
+            "coded": [
+              {
+                "code": "::FW",
+                "timestamp": 1680210000,
+                "dateTimeISO": "2023-03-31T00:00:00+03:00"
+              },
+              {
+                "code": "::CL",
+                "timestamp": 1680213600,
+                "dateTimeISO": "2023-03-31T01:00:00+03:00"
+              },
+              {
+                "code": "::BK",
+                "timestamp": 1680253200,
+                "dateTimeISO": "2023-03-31T12:00:00+03:00"
+              },
+              {
+                "code": "::OV",
+                "timestamp": 1680256800,
+                "dateTimeISO": "2023-03-31T13:00:00+03:00"
+              },
+              {
+                "code": "::BK",
+                "timestamp": 1680264000,
+                "dateTimeISO": "2023-03-31T15:00:00+03:00"
+              },
+              {
+                "code": "::SC",
+                "timestamp": 1680274800,
+                "dateTimeISO": "2023-03-31T18:00:00+03:00"
+              },
+              {
+                "code": "::OV",
+                "timestamp": 1680282000,
+                "dateTimeISO": "2023-03-31T20:00:00+03:00"
+              },
+              {
+                "code": "::BK",
+                "timestamp": 1680285600,
+                "dateTimeISO": "2023-03-31T21:00:00+03:00"
+              },
+              {
+                "code": "::SC",
+                "timestamp": 1680289200,
+                "dateTimeISO": "2023-03-31T22:00:00+03:00"
+              },
+              {
+                "code": "::BK",
+                "timestamp": 1680292800,
+                "dateTimeISO": "2023-03-31T23:00:00+03:00"
+              }
+            ]
+          },
+          "solrad": {
+            "maxWM2": 616,
+            "minWM2": 0,
+            "avgWM2": 144,
+            "totalWM2": 3446,
+            "maxTimestamp": 1680249600,
+            "maxDateTimeISO": "2023-03-31T11:00:00+03:00",
+            "minTimestamp": 1680210000,
+            "minDateTimeISO": "2023-03-31T00:00:00+03:00",
+            "ghi": {
+              "maxWM2": 616,
+              "minWM2": 0,
+              "avgWM2": 143,
+              "totalWM2": 3443,
+              "maxTimestamp": 1680249600,
+              "maxDateTimeISO": "2023-03-31T11:00:00+03:00",
+              "minTimestamp": 1680210000,
+              "minDateTimeISO": "2023-03-31T00:00:00+03:00"
+            },
+            "dni": {
+              "maxWM2": 784,
+              "minWM2": 0,
+              "avgWM2": 191,
+              "totalWM2": 4580,
+              "maxTimestamp": 1680242400,
+              "maxDateTimeISO": "2023-03-31T09:00:00+03:00",
+              "minTimestamp": 1680210000,
+              "minDateTimeISO": "2023-03-31T00:00:00+03:00"
+            },
+            "dhi": {
+              "maxWM2": 317,
+              "minWM2": 0,
+              "avgWM2": 64,
+              "totalWM2": 1545,
+              "maxTimestamp": 1680253200,
+              "maxDateTimeISO": "2023-03-31T12:00:00+03:00",
+              "minTimestamp": 1680210000,
+              "minDateTimeISO": "2023-03-31T00:00:00+03:00"
+            }
+          },
+          "uvi": {
+            "max": 3,
+            "min": 0,
+            "avg": 0.75,
+            "maxTimestamp": 1680249600,
+            "maxDateTimeISO": "2023-03-31T11:00:00+03:00",
+            "minTimestamp": 1680210000,
+            "minDateTimeISO": "2023-03-31T00:00:00+03:00"
+          },
+          "spressure": {
+            "maxMB": 1000,
+            "minMB": 997.2,
+            "avgMB": 998.9,
+            "maxIN": 29.53,
+            "minIN": 29.45,
+            "avgIN": 29.5,
+            "maxTimestamp": 1680242400,
+            "maxDateTimeISO": "2023-03-31T09:00:00+03:00",
+            "minTimestamp": 1680282000,
+            "minDateTimeISO": "2023-03-31T20:00:00+03:00"
+          },
+          "altimeter": {
+            "maxMB": 1012.3,
+            "minMB": 1009.4,
+            "avgMB": 1011.1,
+            "maxIN": 29.89,
+            "minIN": 29.81,
+            "avgIN": 29.86,
+            "maxTimestamp": 1680242400,
+            "maxDateTimeISO": "2023-03-31T09:00:00+03:00",
+            "minTimestamp": 1680282000,
+            "minDateTimeISO": "2023-03-31T20:00:00+03:00"
+          }
+        }
+      ],
+      "profile": {
+        "tz": "Europe/Zaporozhye",
+        "tzname": "EEST",
+        "tzoffset": 10800,
+        "isDST": true,
+        "elevM": 105,
+        "elevFT": 344
+      }
+    }
+  ]
+}

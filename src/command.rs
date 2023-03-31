@@ -14,10 +14,9 @@ impl Default for DateRepresentation {
 }
 
 /// Bundle of data that is to be used
-#[allow(dead_code)]
 pub struct WeatherCommand {
-    location: String,
-    time_offset: DateRepresentation,
+    pub location: String,
+    pub time_offset: DateRepresentation,
 }
 
 impl WeatherCommand {

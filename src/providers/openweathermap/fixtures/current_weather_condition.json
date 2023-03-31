@@ -1,0 +1,31 @@
+{
+  "coord": { "lon": 35.1183, "lat": 47.8508 },
+  "weather": [
+    {
+      "id": 804,
+      "main": "Clouds",
+      "description": "overcast clouds",
+      "icon": "04d"
+    }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 285.08,
+    "feels_like": 283.16,
+    "temp_min": 285.08,
+    "temp_max": 285.08,
+    "pressure": 1009,
+    "humidity": 32,
+    "sea_level": 1009,
+    "grnd_level": 1002
+  },
+  "visibility": 10000,
+  "wind": { "speed": 8.05, "deg": 232, "gust": 10.36 },
+  "clouds": { "all": 93 },
+  "dt": 1680270159,
+  "sys": { "country": "UA", "sunrise": 1680232860, "sunset": 1680278783 },
+  "timezone": 10800,
+  "id": 687700,
+  "name": "Zaporizhia",
+  "cod": 200
+}

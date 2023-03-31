@@ -1,0 +1,7 @@
+tab_spaces = 4
+newline_style = "Unix"
+max_width = 100
+reorder_imports = true
+reorder_impl_items = true
+remove_nested_parens = true
+group_imports = "One"
