@@ -12,4 +12,5 @@ Cargo.lock
 .env
 .direnv
 .vscode
-hurl_responses
+.tmp
+/hurl_responses
