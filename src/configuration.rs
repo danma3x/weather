@@ -114,6 +114,7 @@ mod tests {
         let mut config = Configuration::default().with_config_path(Some(".tmp/test.json".into()));
         config.set_accuweather_api_key(Some("11111".to_owned()));
         config.set_default_provider(Some(AvailableProviders::AccuWeather));
+        fs::create_dir_all(".tmp").expect("Wasn't able to create a temporary test directory");
         config.save().expect("Was unable to save a config");
         let config =
             open_or_default(Some(".tmp/test.json".into())).expect("Couldn't open a config file");
