@@ -2,17 +2,19 @@ use anyhow::{Context, Result};
 use clap::Parser;
 use dialoguer::{Input, Select};
 use weather::configuration::{open_or_default, Configuration};
+use weather::providers::accuweather::AccuWeatherProvider;
 use weather::types::AvailableProviders;
 
 mod args {
 
-    use clap::{FromArgMatches, Parser, Subcommand};
-    use weather::{command::DateRepresentation, types::AvailableProviders};
+    use clap::{Parser, Subcommand};
+    use std::path::PathBuf;
+    use weather::types::AvailableProviders;
     #[derive(Parser, Debug)]
     pub struct GetAction {
         location: String,
-        #[clap()]
-        date: DateRepresentation,
+        // #[clap()]
+        // date: DateRepresentation,
     }
 
     #[derive(Subcommand, Debug)]
@@ -26,10 +28,12 @@ mod args {
     pub struct Args {
         #[command(subcommand)]
         pub action: Action,
+        #[arg(short, long)]
+        pub config_path: Option<PathBuf>,
     }
 }
 
-fn select_provider(forced: bool) -> Result<AvailableProviders> {
+fn _select_provider(forced: bool) -> Result<AvailableProviders> {
     let providers = &["AccuWeather"];
     if forced {
         println!("You don't have a default provider set");
@@ -42,10 +46,10 @@ fn select_provider(forced: bool) -> Result<AvailableProviders> {
         .context("You haven't selected a provider.")?;
     let selected_provider = providers
         .get(selection)
-        .expect("How did you manage to select outside of the list?")
-        .clone();
+        .cloned()
+        .context("How did you manage to select outside of the list?")?;
     let provider_opt = AvailableProviders::from_string(selected_provider);
-    Ok(provider_opt.context("Provider has not been selected")?)
+    provider_opt.context("Provider has not been selected")
 }
 
 /// synchronous API key prompt
@@ -57,13 +61,13 @@ fn get_api_key() -> Result<String> {
     api_key
 }
 
-#[async_std::main]
+#[tokio::main]
 async fn main() -> Result<()> {
     let args = args::Args::parse();
-    let mut configuration = match open_or_default() {
+    let mut configuration = match open_or_default(None) {
         Ok(c) => c,
         Err(e) => {
-            println!("{}", e.to_string());
+            println!("{}", e);
             Configuration::default()
         }
     };
@@ -77,11 +81,11 @@ async fn main() -> Result<()> {
             }
         }
         args::Action::Get(_get_action) => {
-            if let None = configuration.default_provider {
-                let provider = select_provider(true)?;
-                configuration.default_provider = Some(provider);
-            } else {
-            }
+            let provider_tag = configuration.default_provider.clone().context(
+            "You haven't selected a default provider yet, please run >weather configure provider first")?;
+            let _provider = match provider_tag {
+                AvailableProviders::AccuWeather => AccuWeatherProvider::new(),
+            };
         }
     }
     configuration.save()?;

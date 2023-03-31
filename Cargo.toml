@@ -5,11 +5,11 @@ edition = "2021"
 
 
 [dependencies]
-async-std = { version = "1.12.0", features = ["attributes"] }
+tokio = { version = "1.27.0", features = ["full"] }
 futures = { version = "0.3.27" }
 
 serde = { version = "1.0.159", features = ["derive"] }
-serde_json = { version = "1.0.95" }
+serde_json = { version = "1.0.95", features = ["raw_value"] }
 
 clap = { version = "4.2.0", features = ["derive"] }
 dirs = { version = "5.0.0" }
@@ -20,7 +20,8 @@ dialoguer = { version = "0.10.3", features = [
     "tempfile",
     "zeroize",
 ], default-features = false }
-chrono = "0.4.24"
+chrono = { version = "0.4.24", features = ["serde"] }
+async-trait = "0.1.68"
 
 [dev-dependencies]
 wiremock = { version = "0.5.17" }

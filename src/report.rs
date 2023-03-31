@@ -1,12 +1,12 @@
 /// Assembled weather report data
 pub struct Report {
-    title: String,
+    _title: String,
 }
 
 impl Report {
     /// Initialize a report, add fields to it via the builder pattern in your favorite weather provider adapter
-    pub fn new(title: String) -> Self {
-        Self { title }
+    pub fn new(_title: String) -> Self {
+        Self { _title }
     }
     // pub fn add_weather_condition(self) -> Self {
     //     self

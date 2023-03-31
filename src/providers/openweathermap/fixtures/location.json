@@ -1,0 +1,97 @@
+[
+  {
+    "name": "Zaporizhzhia",
+    "local_names": {
+      "sl": "Zaporožje",
+      "pl": "Zaporoże",
+      "ko": "자포리자",
+      "ml": "സപ്പോരിജിയ",
+      "hu": "Zaporizzsja",
+      "be": "Запарожжа",
+      "sh": "Zaporižja",
+      "fr": "Zaporijia",
+      "ja": "ザポリージャ",
+      "nl": "Zaporizja",
+      "sv": "Zaporizjzja",
+      "zh": "扎波里日扎",
+      "he": "זפוריז'יה",
+      "et": "Zaporižžja",
+      "es": "Zaporiyia",
+      "fi": "Zaporižžja",
+      "sk": "Zaporižžia",
+      "az": "Zaporojya",
+      "cs": "Záporoží",
+      "ar": "زاباروجيا",
+      "de": "Saporischschja",
+      "pt": "Zaporizhzhya",
+      "uk": "Запоріжжя",
+      "tr": "Zaporijjia",
+      "ku": "Zaporîjya",
+      "sr": "Запорожје",
+      "hr": "Zaporižja",
+      "lt": "Zaporižia",
+      "en": "Zaporizhzhia",
+      "eo": "Zaporiĵo",
+      "ru": "Запорожье",
+      "lv": "Zaporižja",
+      "it": "Zaporižžja"
+    },
+    "lat": 47.8507859,
+    "lon": 35.1182867,
+    "country": "UA",
+    "state": "Zaporizhia Oblast"
+  },
+  {
+    "name": "Zaporizhzhia",
+    "local_names": {
+      "ru": "Запорожье",
+      "uk": "Запоріжжя",
+      "fr": "Zaporijjia",
+      "en": "Zaporizhzhia",
+      "lt": "Zaporožė"
+    },
+    "lat": 48.2571,
+    "lon": 38.72475,
+    "country": "UA",
+    "state": "Luhansk Oblast"
+  },
+  {
+    "name": "Zaporizhzhia",
+    "local_names": {
+      "ru": "Запорожье",
+      "uk": "Запоріжжя",
+      "en": "Zaporizhzhia",
+      "lt": "Zaporožė"
+    },
+    "lat": 48.1053608,
+    "lon": 37.0011772,
+    "country": "UA",
+    "state": "Donetsk Oblast"
+  },
+  {
+    "name": "Zaporizhzhia",
+    "local_names": {
+      "lt": "Zaporožė",
+      "ru": "Запорожье",
+      "uk": "Запоріжжя",
+      "en": "Zaporizhzhia"
+    },
+    "lat": 48.562321,
+    "lon": 33.738331,
+    "country": "UA",
+    "state": "Dnipropetrovsk Oblast"
+  },
+  {
+    "name": "Zaporizhzhia",
+    "local_names": {
+      "en": "Zaporizhzhia",
+      "lt": "Zaporožė",
+      "ru": "Запорожье",
+      "uk": "Запоріжжя"
+    },
+    "lat": 48.728142,
+    "lon": 33.20446,
+    "country": "UA",
+    "state": "Kirovohrad Oblast"
+  }
+]

@@ -1,0 +1,80 @@
+{
+  "success": true,
+  "error": null,
+  "response": [
+    {
+      "loc": {
+        "lat": 47.85167,
+        "long": 35.11714
+      },
+      "place": {
+        "name": "zaporizhzhya",
+        "state": "zp",
+        "country": "ua"
+      },
+      "periods": [
+        {
+          "timestamp": 1680266820,
+          "dateTimeISO": "2023-03-31T15:47:00+03:00",
+          "tempC": 10.7,
+          "tempF": 51.26,
+          "feelslikeC": 10.7,
+          "feelslikeF": 51.26,
+          "dewpointC": -1.65,
+          "dewpointF": 29.03,
+          "humidity": 42,
+          "pressureMB": 1011,
+          "pressureIN": 29.85,
+          "windDir": "SW",
+          "windDirDEG": 226,
+          "windSpeedKTS": 11,
+          "windSpeedKPH": 20.37,
+          "windSpeedMPH": 12.66,
+          "windGustKTS": 14,
+          "windGustKPH": 25.93,
+          "windGustMPH": 16.11,
+          "precipMM": 0,
+          "precipIN": 0,
+          "precipRateMM": 0,
+          "precipRateIN": 0,
+          "snowCM": 0,
+          "snowIN": 0,
+          "snowRateCM": 0,
+          "snowRateIN": 0,
+          "pop": 0,
+          "visibilityKM": 16,
+          "visibilityMI": 9.942,
+          "sky": 88,
+          "cloudsCoded": "BK",
+          "weather": "Mostly Cloudy",
+          "weatherCoded": "::BK",
+          "weatherPrimary": "Mostly Cloudy",
+          "weatherPrimaryCoded": "::BK",
+          "icon": "mcloudy.png",
+          "solradWM2": 249,
+          "uvi": 1,
+          "isDay": true,
+          "spressureMB": 998.3,
+          "spressureIN": 29.48,
+          "altimeterMB": 1010.5,
+          "altimeterIN": 29.84,
+          "solrad": {
+            "azimuthDEG": 236.6422,
+            "zenithDEG": 58.6826,
+            "ghiWM2": 249.2551,
+            "dniWM2": 86.7281,
+            "dhiWM2": 204.1756
+          }
+        }
+      ],
+      "profile": {
+        "tz": "Europe/Zaporozhye",
+        "tzname": "EEST",
+        "tzoffset": 10800,
+        "isDST": true,
+        "elevM": 105,
+        "elevFT": 344
+      }
+    }
+  ]
+}

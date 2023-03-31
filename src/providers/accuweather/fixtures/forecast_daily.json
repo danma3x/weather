@@ -1,0 +1,132 @@
+{
+  "Headline": {
+    "EffectiveDate": "2023-04-02T08:00:00+03:00",
+    "EffectiveEpochDate": 1680411600,
+    "Severity": 2,
+    "Text": "Expect showery weather Sunday morning through Monday afternoon",
+    "Category": "rain",
+    "EndDate": "2023-04-03T20:00:00+03:00",
+    "EndEpochDate": 1680541200,
+    "MobileLink": "http://www.accuweather.com/en/ua/zaporizhzhia/326514/daily-weather-forecast/326514?unit=c&lang=en-us",
+    "Link": "http://www.accuweather.com/en/ua/zaporizhzhia/326514/daily-weather-forecast/326514?unit=c&lang=en-us"
+  },
+  "DailyForecasts": [
+    {
+      "Date": "2023-03-31T07:00:00+03:00",
+      "EpochDate": 1680235200,
+      "Temperature": {
+        "Minimum": { "Value": 3.5, "Unit": "C", "UnitType": 17 },
+        "Maximum": { "Value": 10.7, "Unit": "C", "UnitType": 17 }
+      },
+      "Day": {
+        "Icon": 4,
+        "IconPhrase": "Intermittent clouds",
+        "HasPrecipitation": false
+      },
+      "Night": {
+        "Icon": 12,
+        "IconPhrase": "Showers",
+        "HasPrecipitation": true,
+        "PrecipitationType": "Rain",
+        "PrecipitationIntensity": "Light"
+      },
+      "Sources": ["AccuWeather"],
+      "MobileLink": "http://www.accuweather.com/en/ua/zaporizhzhia/326514/daily-weather-forecast/326514?day=1&unit=c&lang=en-us",
+      "Link": "http://www.accuweather.com/en/ua/zaporizhzhia/326514/daily-weather-forecast/326514?day=1&unit=c&lang=en-us"
+    },
+    {
+      "Date": "2023-04-01T07:00:00+03:00",
+      "EpochDate": 1680321600,
+      "Temperature": {
+        "Minimum": { "Value": 5.4, "Unit": "C", "UnitType": 17 },
+        "Maximum": { "Value": 9.0, "Unit": "C", "UnitType": 17 }
+      },
+      "Day": {
+        "Icon": 4,
+        "IconPhrase": "Intermittent clouds",
+        "HasPrecipitation": false
+      },
+      "Night": {
+        "Icon": 38,
+        "IconPhrase": "Mostly cloudy",
+        "HasPrecipitation": false
+      },
+      "Sources": ["AccuWeather"],
+      "MobileLink": "http://www.accuweather.com/en/ua/zaporizhzhia/326514/daily-weather-forecast/326514?day=2&unit=c&lang=en-us",
+      "Link": "http://www.accuweather.com/en/ua/zaporizhzhia/326514/daily-weather-forecast/326514?day=2&unit=c&lang=en-us"
+    },
+    {
+      "Date": "2023-04-02T07:00:00+03:00",
+      "EpochDate": 1680408000,
+      "Temperature": {
+        "Minimum": { "Value": 6.9, "Unit": "C", "UnitType": 17 },
+        "Maximum": { "Value": 9.6, "Unit": "C", "UnitType": 17 }
+      },
+      "Day": {
+        "Icon": 13,
+        "IconPhrase": "Mostly cloudy w/ showers",
+        "HasPrecipitation": true,
+        "PrecipitationType": "Rain",
+        "PrecipitationIntensity": "Light"
+      },
+      "Night": {
+        "Icon": 12,
+        "IconPhrase": "Showers",
+        "HasPrecipitation": true,
+        "PrecipitationType": "Rain",
+        "PrecipitationIntensity": "Light"
+      },
+      "Sources": ["AccuWeather"],
+      "MobileLink": "http://www.accuweather.com/en/ua/zaporizhzhia/326514/daily-weather-forecast/326514?day=3&unit=c&lang=en-us",
+      "Link": "http://www.accuweather.com/en/ua/zaporizhzhia/326514/daily-weather-forecast/326514?day=3&unit=c&lang=en-us"
+    },
+    {
+      "Date": "2023-04-03T07:00:00+03:00",
+      "EpochDate": 1680494400,
+      "Temperature": {
+        "Minimum": { "Value": 2.1, "Unit": "C", "UnitType": 17 },
+        "Maximum": { "Value": 13.7, "Unit": "C", "UnitType": 17 }
+      },
+      "Day": {
+        "Icon": 13,
+        "IconPhrase": "Mostly cloudy w/ showers",
+        "HasPrecipitation": true,
+        "PrecipitationType": "Rain",
+        "PrecipitationIntensity": "Light"
+      },
+      "Night": {
+        "Icon": 35,
+        "IconPhrase": "Partly cloudy",
+        "HasPrecipitation": false
+      },
+      "Sources": ["AccuWeather"],
+      "MobileLink": "http://www.accuweather.com/en/ua/zaporizhzhia/326514/daily-weather-forecast/326514?day=4&unit=c&lang=en-us",
+      "Link": "http://www.accuweather.com/en/ua/zaporizhzhia/326514/daily-weather-forecast/326514?day=4&unit=c&lang=en-us"
+    },
+    {
+      "Date": "2023-04-04T07:00:00+03:00",
+      "EpochDate": 1680580800,
+      "Temperature": {
+        "Minimum": { "Value": 8.1, "Unit": "C", "UnitType": 17 },
+        "Maximum": { "Value": 12.7, "Unit": "C", "UnitType": 17 }
+      },
+      "Day": {
+        "Icon": 18,
+        "IconPhrase": "Rain",
+        "HasPrecipitation": true,
+        "PrecipitationType": "Rain",
+        "PrecipitationIntensity": "Light"
+      },
+      "Night": {
+        "Icon": 12,
+        "IconPhrase": "Showers",
+        "HasPrecipitation": true,
+        "PrecipitationType": "Rain",
+        "PrecipitationIntensity": "Light"
+      },
+      "Sources": ["AccuWeather"],
+      "MobileLink": "http://www.accuweather.com/en/ua/zaporizhzhia/326514/daily-weather-forecast/326514?day=5&unit=c&lang=en-us",
+      "Link": "http://www.accuweather.com/en/ua/zaporizhzhia/326514/daily-weather-forecast/326514?day=5&unit=c&lang=en-us"
+    }
+  ]
+}
