@@ -79,7 +79,11 @@ impl Configuration {
 mod tests {
     use super::*;
     fn obtain_username() -> String {
-        std::env::var("USER").expect("Was not able to obtain a username")
+        if cfg!(windows) {
+            std::env::var("USERNAME").expect("Was not able to obtain a username")
+        } else {
+            std::env::var("USER").expect("Was not able to obtain a username")
+        }
     }
 
     #[test]
