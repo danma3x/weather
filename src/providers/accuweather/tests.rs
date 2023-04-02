@@ -40,7 +40,10 @@ async fn test_location_request() {
         "22222".into(),
     );
 
-    let wc = WeatherCommand::new("Zaporizhzhia");
+    let wc = WeatherCommand::new(
+        "Zaporizhzhia",
+        crate::command::DateOffsetRepresentation::Now,
+    );
 
     let req_loc_search_res = accuweather_inst.request_location_search(&wc).await;
     let req_loc_search = req_loc_search_res.expect("Location search request completely failed");
@@ -73,7 +76,7 @@ async fn test_current_weather_conditions_request() {
         "22222".into(),
     );
 
-    let wc = WeatherCommand::new("Zaporizhzhia");
+    // let wc = WeatherCommand::new("Zaporizhzhia", crate::command::DateRepresentation::Now);
 
     let req_loc_search_res = accuweather_inst
         ._request_current_weather_conditions("326514")
@@ -83,7 +86,7 @@ async fn test_current_weather_conditions_request() {
     let demarshaled_response = parse_weather_conditions(req_loc_search)
         .await
         .expect("Couldn't parse the response at all");
-    let location_item = demarshaled_response.first().expect("Parse result is empty");
+    let _location_item = demarshaled_response.first().expect("Parse result is empty");
     //TODO: check weather response
 }
 

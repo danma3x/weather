@@ -1,0 +1,41 @@
+{
+  "location": {
+    "name": "Zaporizhzhya",
+    "region": "Zaporiz'ka Oblast'",
+    "country": "Ukraine",
+    "lat": 47.82,
+    "lon": 35.18,
+    "tz_id": "Europe/Zaporozhye",
+    "localtime_epoch": 1680285784,
+    "localtime": "2023-03-31 21:03"
+  },
+  "current": {
+    "last_updated_epoch": 1680285600,
+    "last_updated": "2023-03-31 21:00",
+    "temp_c": 7.5,
+    "temp_f": 45.5,
+    "is_day": 0,
+    "condition": {
+      "text": "Overcast",
+      "icon": "//cdn.weatherapi.com/weather/64x64/night/122.png",
+      "code": 1009
+    },
+    "wind_mph": 14.5,
+    "wind_kph": 23.4,
+    "wind_degree": 213,
+    "wind_dir": "SSW",
+    "pressure_mb": 1010.0,
+    "pressure_in": 29.84,
+    "precip_mm": 0.0,
+    "precip_in": 0.0,
+    "humidity": 57,
+    "cloud": 100,
+    "feelslike_c": 3.9,
+    "feelslike_f": 39.0,
+    "vis_km": 10.0,
+    "vis_miles": 6.0,
+    "uv": 1.0,
+    "gust_mph": 21.3,
+    "gust_kph": 34.2
+  }
+}

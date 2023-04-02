@@ -1,70 +1,77 @@
 use anyhow::{Context, Result};
 use clap::Parser;
-use dialoguer::{Input, Select};
+use dialoguer::Input;
 use weather::configuration::{open_or_default, Configuration};
 use weather::providers::accuweather::AccuWeatherProvider;
-use weather::types::AvailableProviders;
-
-mod args {
-
-    use clap::{Parser, Subcommand};
-    use std::path::PathBuf;
-    use weather::types::AvailableProviders;
-    #[derive(Parser, Debug)]
-    pub struct GetAction {
-        location: String,
-        // #[clap()]
-        // date: DateRepresentation,
-    }
-
-    #[derive(Subcommand, Debug)]
-    pub enum Action {
-        Get(GetAction),
-        Configure { provider: AvailableProviders },
-    }
-
-    #[derive(Parser, Debug)]
-    #[command(author, version, about, long_about = None)]
-    pub struct Args {
-        #[command(subcommand)]
-        pub action: Action,
-        #[arg(short, long)]
-        pub config_path: Option<PathBuf>,
-    }
-}
-
-fn _select_provider(forced: bool) -> Result<AvailableProviders> {
-    let providers = &["AccuWeather"];
-    if forced {
-        println!("You don't have a default provider set");
-    }
-    let selection = Select::new()
-        .with_prompt("Please select a default provider")
-        .items(providers)
-        .interact_opt()
-        .context("Dialoguer error")?
-        .context("You haven't selected a provider.")?;
-    let selected_provider = providers
-        .get(selection)
-        .cloned()
-        .context("How did you manage to select outside of the list?")?;
-    let provider_opt = AvailableProviders::from_string(selected_provider);
-    provider_opt.context("Provider has not been selected")
-}
+use weather::providers::weatherapi::WeatherAPIProvider;
+use weather::types::{AvailableProviders, Provider};
+use weather::{args, util};
 
 /// synchronous API key prompt
 fn get_api_key() -> Result<String> {
     let api_key = Input::new()
         .with_prompt("Please enter your API key")
         .interact_text()
-        .context("API key not entered");
+        .context("API key has not been entered");
     api_key
+}
+
+/// Handles provider configuration
+fn handle_condigure(configuration: &mut Configuration, provider: AvailableProviders) -> Result<()> {
+    let api_key = get_api_key()?;
+    match provider {
+        AvailableProviders::AccuWeather => configuration.set_accuweather_api_key(Some(api_key)),
+        AvailableProviders::WeatherAPI => configuration.set_weatherapi_api_key(Some(api_key)),
+    }
+    Ok(())
+}
+
+/// Handles the configuration of a default provider selection
+fn handle_change_default_provider(configuration: &mut Configuration, provider: AvailableProviders) {
+    println!("Have set the new default provider {:?}", provider);
+    configuration.set_default_provider(Some(provider));
+}
+
+/// Handles the weather provider interaction and report generation
+async fn handle_get(configuration: &Configuration, get_action: args::GetArgs) -> Result<()> {
+    let weather_command = util::parse_get_action(get_action);
+    log::debug!("Weather command: {:?}", weather_command);
+    let provider_tag = configuration.default_provider.clone().context(
+            "You haven't selected a default provider yet, please run >weather configure <provider> first")?;
+    let report = match provider_tag {
+        AvailableProviders::AccuWeather => {
+            let api_key = configuration
+                .accuweather_api_key
+                .clone()
+                .context("You haven't set AccuWeather API key")?;
+            AccuWeatherProvider::new()
+                .with_api_key(api_key)
+                .run(weather_command)
+                .await
+        }
+        AvailableProviders::WeatherAPI => {
+            let api_key = configuration
+                .weatherapi_api_key
+                .clone()
+                .context("You haven't set WeatherAPI API key")?;
+            WeatherAPIProvider::default()
+                .with_api_key(api_key)
+                .run(weather_command)
+                .await
+        }
+    }
+    .context("Failed to build a report")?;
+    println!("{}", report);
+    Ok(())
 }
 
 #[tokio::main]
 async fn main() -> Result<()> {
+    // Don't forget the RUST_LOG next time please
+    env_logger::init();
+
     let args = args::Args::parse();
-    let mut configuration = match open_or_default(None) {
+    let mut configuration = match open_or_default(args.config_path) {
         Ok(c) => c,
         Err(e) => {
             println!("{}", e);
@@ -72,21 +79,11 @@ async fn main() -> Result<()> {
         }
     };
     match args.action {
-        args::Action::Configure { provider } => {
-            let api_key = get_api_key()?;
-            match provider {
-                AvailableProviders::AccuWeather => {
-                    configuration.set_accuweather_api_key(Some(api_key))
-                }
-            }
+        args::Action::Configure { provider } => handle_condigure(&mut configuration, provider)?,
+        args::Action::Default { provider } => {
+            handle_change_default_provider(&mut configuration, provider)
         }
-        args::Action::Get(_get_action) => {
-            let provider_tag = configuration.default_provider.clone().context(
-            "You haven't selected a default provider yet, please run >weather configure provider first")?;
-            let _provider = match provider_tag {
-                AvailableProviders::AccuWeather => AccuWeatherProvider::new(),
-            };
-        }
+        args::Action::Get(get_action) => handle_get(&configuration, get_action).await?,
     }
     configuration.save()?;
     Ok(())
