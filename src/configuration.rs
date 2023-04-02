@@ -13,10 +13,12 @@ pub struct Configuration {
     #[serde(skip)]
     config_path: Option<PathBuf>,
     pub default_provider: Option<AvailableProviders>,
-    accuweather_api_key: Option<String>,
+    pub accuweather_api_key: Option<String>,
+    pub weatherapi_api_key: Option<String>,
 }
 
 /// Try to obtain the config path
+/// Will attempt create a path, if it doesn't exist already
 fn obtain_default_os_config_path() -> Result<PathBuf> {
     let mut config_path = dirs::config_dir().context("Couldn't find the config path")?;
     config_path.push("weather");
@@ -52,11 +54,15 @@ impl Configuration {
         self.accuweather_api_key = api_key_opt;
     }
 
+    pub fn set_weatherapi_api_key(&mut self, api_key_opt: Option<String>) {
+        self.weatherapi_api_key = api_key_opt;
+    }
+
     pub fn set_default_provider(&mut self, provider_opt: Option<AvailableProviders>) {
         self.default_provider = provider_opt;
     }
 
-    /// Attempt to save a config file to a default location
+    /// Handles serializing a configuration file to either a location specified on itself or a default os-dependent one
     pub fn save(&self) -> Result<()> {
         let path = match &self.config_path {
             Some(p) => p.clone(),
@@ -69,6 +75,7 @@ impl Configuration {
         Ok(())
     }
 
+    /// Modifies the path the config will be attempted to be written to
     pub fn with_config_path(mut self, path_opt: Option<PathBuf>) -> Self {
         self.config_path = path_opt;
         self
