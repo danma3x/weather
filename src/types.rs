@@ -16,15 +16,18 @@ pub trait Provider {
 /// Used by configuration struct and argument parser at runtime
 #[derive(Serialize, Deserialize, Clone, ValueEnum, Debug, PartialEq)]
 pub enum AvailableProviders {
-    AccuWeather,
+    // AccuWeather,
     WeatherAPI,
+    AerisWeather,
 }
 
 impl AvailableProviders {
     /// Get a nullable provider by providing a string, used in the interactive part of the app
     pub fn from_string<S: AsRef<str>>(provider_str: S) -> Option<AvailableProviders> {
         match provider_str.as_ref() {
-            "AccuWeather" => Some(AvailableProviders::AccuWeather),
+            // "AccuWeather" => Some(AvailableProviders::AccuWeather),
+            "AerisWeather" => Some(AvailableProviders::AerisWeather),
+            "WeatherAPI" => Some(AvailableProviders::WeatherAPI),
             _ => None,
         }
     }

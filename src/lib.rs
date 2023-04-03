@@ -1,5 +1,4 @@
 pub mod args;
-pub mod capabilities;
 pub mod command;
 pub mod configuration;
 pub mod providers;

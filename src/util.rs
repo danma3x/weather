@@ -6,7 +6,6 @@ use anyhow::Result;
 
 /// Parses a custom argument format
 // TODO: way too nested for anyone's taste
-// TODO: lowercase too pls
 pub fn parse_date_arg(date_str: &str) -> Result<DateOffsetRepresentation> {
     let lower_date_str = date_str.to_ascii_lowercase();
     // then we have a sign, possible a number and a suffix
@@ -14,7 +13,7 @@ pub fn parse_date_arg(date_str: &str) -> Result<DateOffsetRepresentation> {
         let amount_res = lower_date_str[1..lower_date_str.len() - 1].parse::<isize>();
         let amount_res = match lower_date_str.chars().next() {
             Some('h') => amount_res.map(|a| -a),
-            // Some('f') => amount_res.map(|a| a),
+            Some('f') => amount_res,
             _ => return Ok(DateOffsetRepresentation::Now),
         };
         if let Ok(amount) = amount_res {
@@ -64,6 +63,10 @@ mod tests {
         assert_eq!(
             parse_date_arg("h0d").expect("Bad luck"),
             DateOffsetRepresentation::Now
+        );
+        assert_eq!(
+            parse_date_arg("f5d").expect("Bad luck"),
+            DateOffsetRepresentation::DayOffset(5)
         );
     }
 }

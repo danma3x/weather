@@ -5,9 +5,9 @@ use wiremock::{
     Mock, MockServer, ResponseTemplate,
 };
 
-pub const CURRENT_MOCK: &'static str = include_str!("./fixtures/current.json");
-pub const FORECAST_MOCK: &'static str = include_str!("./fixtures/forecast.json");
-pub const HISTORY_MOCK: &'static str = include_str!("./fixtures/history.json");
+const CURRENT_MOCK: &'static str = include_str!("./fixtures/current.json");
+const FORECAST_MOCK: &'static str = include_str!("./fixtures/forecast.json");
+const HISTORY_MOCK: &'static str = include_str!("./fixtures/history.json");
 
 fn make_weatherapi<S: Into<String>>(base_url: S, api_key: S) -> WeatherAPIProvider {
     WeatherAPIProvider::default()

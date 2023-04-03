@@ -13,8 +13,10 @@ pub struct Configuration {
     #[serde(skip)]
     config_path: Option<PathBuf>,
     pub default_provider: Option<AvailableProviders>,
-    pub accuweather_api_key: Option<String>,
+    // pub accuweather_api_key: Option<String>,
     pub weatherapi_api_key: Option<String>,
+    pub aerisweather_client_id: Option<String>,
+    pub aerisweather_client_secret: Option<String>,
 }
 
 /// Try to obtain the config path
@@ -50,12 +52,21 @@ pub fn open_or_default(path_opt: Option<PathBuf>) -> Result<Configuration> {
 }
 
 impl Configuration {
-    pub fn set_accuweather_api_key(&mut self, api_key_opt: Option<String>) {
-        self.accuweather_api_key = api_key_opt;
-    }
+    // pub fn set_accuweather_api_key(&mut self, api_key_opt: Option<String>) {
+    // self.accuweather_api_key = api_key_opt;
+    // }
 
     pub fn set_weatherapi_api_key(&mut self, api_key_opt: Option<String>) {
         self.weatherapi_api_key = api_key_opt;
+    }
+
+    pub fn set_aerisweather_client_secret(
+        &mut self,
+        client_id_opt: Option<String>,
+        client_secret_opt: Option<String>,
+    ) {
+        self.aerisweather_client_id = client_id_opt;
+        self.aerisweather_client_secret = client_secret_opt;
     }
 
     pub fn set_default_provider(&mut self, provider_opt: Option<AvailableProviders>) {
@@ -123,16 +134,18 @@ mod tests {
     #[test]
     fn test_save_load_cycle() {
         let mut config = Configuration::default().with_config_path(Some(".tmp/test.json".into()));
-        config.set_accuweather_api_key(Some("11111".to_owned()));
-        config.set_default_provider(Some(AvailableProviders::AccuWeather));
+        // config.set_accuweather_api_key(Some("11111".to_owned()));
+        config.set_weatherapi_api_key(Some("api_key_opt".to_owned()));
+        // config.set_default_provider(Some(AvailableProviders::AccuWeather));
+        config.set_default_provider(Some(AvailableProviders::AerisWeather));
         fs::create_dir_all(".tmp").expect("Wasn't able to create a temporary test directory");
         config.save().expect("Was unable to save a config");
         let config =
             open_or_default(Some(".tmp/test.json".into())).expect("Couldn't open a config file");
-        assert_eq!(config.accuweather_api_key, Some("11111".into()));
+        assert_eq!(config.weatherapi_api_key, Some("api_key_opt".into()));
         assert_eq!(
             config.default_provider,
-            Some(AvailableProviders::AccuWeather)
+            Some(AvailableProviders::AerisWeather)
         );
     }
 }
