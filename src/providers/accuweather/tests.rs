@@ -87,7 +87,6 @@ async fn test_current_weather_conditions_request() {
         .await
         .expect("Couldn't parse the response at all");
     let _location_item = demarshaled_response.first().expect("Parse result is empty");
-    //TODO: check weather response
 }
 
 #[test]

@@ -48,7 +48,7 @@ impl std::fmt::Display for ReportSection {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         let _ = writeln!(f, "{}", &self.title);
         self.contents.iter().fold(Ok(()), |result, (k, v)| {
-            result.and_then(|_| writeln!(f, "{:<45} | {:<20}", k, v))
+            result.and_then(|_| writeln!(f, "{:<35} | {:<20}", k, v))
         })
     }
 }

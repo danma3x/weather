@@ -1,6 +1,6 @@
 [package]
 name = "weather"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 
 
@@ -19,6 +19,7 @@ anyhow = "1.0.70"
 dialoguer = { version = "0.10.3", features = [
     "tempfile",
     "zeroize",
+    "password",
 ], default-features = false }
 chrono = { version = "0.4.24", features = ["serde"] }
 async-trait = "0.1.68"

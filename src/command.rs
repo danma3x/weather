@@ -1,13 +1,12 @@
 use chrono::{DateTime, Duration, FixedOffset};
 
 /// A simple abstraction for types of dates a user might want to enter
+/// Typically, it is used to represent a relative time period
 #[derive(Debug, Clone, PartialEq)]
-#[allow(dead_code)]
 pub enum DateOffsetRepresentation {
     Now,
     HourOffset(isize),
     DayOffset(isize),
-    Date(chrono::NaiveDate),
 }
 
 impl Default for DateOffsetRepresentation {
@@ -17,6 +16,8 @@ impl Default for DateOffsetRepresentation {
 }
 
 impl DateOffsetRepresentation {
+    /// Generate a datetime relative to a user-provided origin datetime, using a variant
+    /// e.g., good for generating datetimes for APIs that'll ask you for precise timestamps, when requesting forecast or history data
     pub fn to_chrono(&self, origin: DateTime<FixedOffset>) -> DateTime<FixedOffset> {
         match self {
             DateOffsetRepresentation::DayOffset(days) => origin + Duration::days(*days as i64),

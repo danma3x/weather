@@ -13,24 +13,22 @@ pub struct LocationSearchItem {
 #[derive(Deserialize)]
 #[serde(rename_all = "PascalCase")]
 pub struct WeatherConditions {
-    weather_text: String,
+    pub weather_text: String,
     #[serde(with = "chrono::serde::ts_seconds")]
-    epoch_time: chrono::DateTime<Utc>,
+    pub epoch_time: chrono::DateTime<Utc>,
 }
 
-#[allow(dead_code)]
 pub type WeatherConditionsResponse = Vec<WeatherConditions>;
 
 pub type LocationSearchResponse = Vec<LocationSearchItem>;
 
 /// Current and historical weather conditions API item
-#[allow(dead_code)]
 #[derive(Deserialize)]
 #[serde(rename_all = "PascalCase")]
 pub struct ForecastHourly {
-    icon_phrase: String,
+    pub icon_phrase: String,
     #[serde(with = "chrono::serde::ts_seconds")]
-    epoch_date_time: chrono::DateTime<Utc>,
+    pub epoch_date_time: chrono::DateTime<Utc>,
 }
 
 #[derive(Deserialize)]

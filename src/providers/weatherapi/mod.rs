@@ -47,11 +47,11 @@ impl WeatherAPIProvider {
         format!("{}/{}", self.base_url, "v1/current.json")
     }
 
-    fn _url_history(&self) -> String {
+    fn url_history(&self) -> String {
         format!("{}/{}", self.base_url, "v1/history.json")
     }
 
-    fn _url_forecast(&self) -> String {
+    fn url_forecast(&self) -> String {
         format!("{}/{}", self.base_url, "v1/forecast.json")
     }
 }
@@ -72,7 +72,7 @@ impl WeatherAPIProvider {
         days: isize,
     ) -> Result<Response, reqwest::Error> {
         self.client
-            .get(self._url_forecast())
+            .get(self.url_forecast())
             .query(&[("key", &self.api_key), ("q", location)])
             .query(&[("aqi", "no"), ("alerts", "no")])
             .query(&[("days", days)])
@@ -80,14 +80,13 @@ impl WeatherAPIProvider {
             .await
     }
 
-    //TODO: handle dt parameter
     async fn request_history(
         &self,
         location: &String,
         dt: &String,
     ) -> Result<Response, reqwest::Error> {
         self.client
-            .get(self._url_history())
+            .get(self.url_history())
             .query(&[("key", &self.api_key), ("q", location)])
             .query(&[("aqi", "no"), ("alerts", "no")])
             .query(&[("dt", dt)])
@@ -148,19 +147,18 @@ async fn parse_forecast(response: Response) -> Result<api::forecast::Json> {
     response
         .json::<api::forecast::Json>()
         .await
-        .context("Couldn't parse the current weather status")
+        .context("Couldn't parse the forecast weather status")
 }
 async fn parse_history(response: Response) -> Result<api::history::Json> {
     response
         .json::<api::history::Json>()
         .await
-        .context("Couldn't parse the current weather status")
+        .context("Couldn't parse the history weather status")
 }
 
 #[async_trait]
 impl Provider for WeatherAPIProvider {
     async fn run(&self, wc: WeatherCommand) -> Result<Report> {
-        log::debug!("{:?}", self.api_key);
         log::debug!("{:?}", wc.location);
         match wc.date {
             DateOffsetRepresentation::Now => self.branch_current(wc.location).await,
@@ -179,7 +177,6 @@ impl Provider for WeatherAPIProvider {
             DateOffsetRepresentation::HourOffset(_h) => {
                 bail!("Hourly offsets are not supported yet")
             }
-            _ => bail!("Other date offsets are not implemented yet"),
         }
     }
 }
